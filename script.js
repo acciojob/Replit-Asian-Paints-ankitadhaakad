@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.getElementById("change_button").addEventListener("click", function () {
   const blockId = document.getElementById("block_id").value.trim();
   const color = document.getElementById("colour_id").value.trim();
@@ -8,15 +7,16 @@ document.getElementById("change_button").addEventListener("click", function () {
     document.getElementById(i.toString()).style.backgroundColor = "transparent";
   }
 
-  // Change background color if valid block ID
+  // Change only the specified block if valid
   if (blockId >= 1 && blockId <= 9) {
-    document.getElementById(blockId).style.backgroundColor = color;
+    const block = document.getElementById(blockId);
+    block.style.backgroundColor = color;
   } else {
-    alert("Please enter a valid block ID (1-9).");
+    alert("Invalid block ID. Enter a number from 1 to 9.");
   }
 });
 
-// Reset button handler
+// Reset all blocks and inputs
 document.getElementById("Reset").addEventListener("click", function () {
   for (let i = 1; i <= 9; i++) {
     document.getElementById(i.toString()).style.backgroundColor = "transparent";
@@ -24,4 +24,3 @@ document.getElementById("Reset").addEventListener("click", function () {
   document.getElementById("block_id").value = "";
   document.getElementById("colour_id").value = "";
 });
-
